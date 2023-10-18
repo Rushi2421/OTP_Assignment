@@ -6,15 +6,16 @@ import smtplib
 import re
 
 client = Client(sms.account_sid, sms.Auth_token)
-account_sid='AC7c4bba6a749d973654b6584a3a50c948'
-Auth_token='09ce27c3c358e5472f2b8b807230f8bc'
+account_sid='AC4ac9769d0f099e66509c2727969f25c1'
+Auth_token='d250ff0f115ef869b4cf654851911707'
 
-twilio_no="+14706885984"
-target_no="+919307084293"
+twilio_no="+12295958014"
+target_no="+918421125737"
 
 def generate_OTP():                                   # generate OTP
     global otp
     otp= ''.join([str(random.randint(0, 9)) for i in range(6)])
+    return otp
 
 fotp=generate_OTP()
 
@@ -30,6 +31,7 @@ def send_otp_over_mobile(target_no):                  #send OTP On SMS
             to=sms.target_no
         )
         print(message.body)
+        return otp
 
     else:
         print("INVALID MOBILE NUMBER!")
@@ -56,8 +58,10 @@ def send_otp(mail):                                     #send OTP via Email
         msg = 'HELLO YOUR OTP IS ' + str(otp)
         server.sendmail('rushirapashe11@gmail.com', mail, msg)
         server.quit()
-        print("OTP sent! ")
-        print("Your OTP is",str(otp))
+        print("OTP sent! Your OTP is",str(otp))
+        return True
+
+
     else:
         print("INVALID MAIL!")
         mail = input("ENTER AGAIN: ")
@@ -81,4 +85,3 @@ elif (ans.lower() == "2"):
 
     recipent = input("ENTER YOUR MAIL ID:\n ")
     send_otp(recipent)
-
