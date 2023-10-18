@@ -9,7 +9,6 @@ The program will demonstrate the use of various libraries and APIs to accomplish
   <li>re - regular expression</li>
   <li>smtplib - To Send Email </li>
   <li>twilio - API Used To Send SMS Over Targeted Mobile Number</li>
-  <li>pytest - To test the program</li>
-  <li>unittest - Framework for writing and running unit tests</li>
+  <li>unittest  - To test the program</li>
 </ul>
 <br>
